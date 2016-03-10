@@ -68,8 +68,7 @@ for animal in zoo:
 # In[ ]:
 
 # works for unordered collections, too
-teams = set(['White Sox', 'Cubs','Yankees','Red Sox']) # equivalent to above
-teams = { 'White Sox', 'Cubs' ,'Yankees','Red Sox'}
+teams = { 'White Sox', 'Cubs' ,'Yankees','Red Sox'} # this is a set
 for t in teams:
     print(t)
 
@@ -120,7 +119,7 @@ S
 # ---
 # # Back to iteration.
 # 
-# # If you realy need the index: `enumerate`
+# # If you really need the index: `enumerate`
 
 # In[ ]:
 
@@ -435,7 +434,7 @@ list(permutations(L,2))
 
 # In[ ]:
 
-from itertools import permutations
+from itertools import combinations
 
 L = [1,2,3,4]
 list(combinations(L,2))
@@ -551,7 +550,35 @@ def handle_everything():
 # * If the condition shows that an error has occurred, raise an exception
 # * If the condition shows that a bug is present, *maybe* check it with an assertion
 
+# # New-style string formatting
+
 # In[ ]:
 
+# OLD printf style
+'%s runs %d %s projects every semester' % ('MCL',4,'amazing')
 
+
+# In[ ]:
+
+# new style
+'{} runs {} {} projects every semester'.format('MCL',4,'amazing')
+
+
+# In[ ]:
+
+# new style, positional indices
+'{0} runs {2} {1} projects every semester'.format('MCL','amazing',4)
+
+
+# In[ ]:
+
+# new style, named fields
+'{lab} runs {number} {adjective} projects every semester'.format(lab='MCL',number=4,adjective='amazing')
+
+
+# In[ ]:
+
+# new style, fields from dict
+d = {'lab': 'MCL', 'number': 4, 'adjective': 'amazing'}
+'{lab} runs {number} {adjective} projects every semester'.format(**d)
 
