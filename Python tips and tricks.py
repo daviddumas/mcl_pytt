@@ -17,7 +17,7 @@
 #   
 # ## Warning
 # 
-# This presentation is about Python 3 (mostly 3.3+).  Most of the tips apply to Python 2, sometimes requiring minor changes to syntax or names.
+# This presentation is about Python 3.  Most of the tips apply to Python 2, sometimes requiring minor changes to syntax or names.
 # 
 # However, let's be clear:  Python 3 is the present and the future.  Python 2 is the past.  Use Python 3.
 # 
@@ -108,6 +108,20 @@ A & B  # intersection
 
 A - B  # difference
 
+
+# These overloaded operators (|, &, -) are shorthand for calling methods of the set object.  However, calling the methods directly has an advantage: They can take the union, difference, etc. with *any iterable*.
+
+# In[ ]:
+
+#  A | [7,8,9]   # -> TypeError
+#  A & [7,8,9]   # -> TypeError
+#  A - [7,8,9]   # -> TypeError
+A.union( [7,8,9] )
+A.intersection( [7,8,9] )
+A.difference( [7,8,9] )
+
+
+# There are also methods to modify (mutate) the set object itself, e.g. union becomes "update".
 
 # In[ ]:
 
@@ -483,7 +497,7 @@ long_running(123)  # Will return instantly
 
 
 # ## Others (OO)
-# * `staticmethod` : method with no "self"; can treat asclass as a "bag of functions"
+# * `staticmethod` : method with no "self"; can treat a class as a "bag of functions"
 # * `classmethod` : method that gets class (not instance) as first parameter; useful for alternate constructors
 # * `property` : zero-parameter method turns into a computed attribute, i.e. `A.foo` instead of `A.foo()`
 
